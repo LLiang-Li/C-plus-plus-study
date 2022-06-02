@@ -20,5 +20,8 @@ int main(int, char**) {
     //p = copy(world, world+5,p);
     *p = '\0';
     std::cout << message;
+
+    
     return 0;
+
 }
