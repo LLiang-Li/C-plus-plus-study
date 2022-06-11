@@ -14,7 +14,7 @@ class Singleton
             
             if (!Singleton::uniqueInstance)
             {
-                std::cout << "create\n";
+                //std::cout << "create\n";
                 Singleton::uniqueInstance = new Singleton;
             }
             return Singleton::uniqueInstance;
