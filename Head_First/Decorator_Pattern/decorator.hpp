@@ -116,7 +116,7 @@ class Mocha: public CondimentDecorator
             {
                 std::cout << "Mocha\n";
                 // std::cout <<"in\n";
-                this->beverage->~Beverage();
+                delete this->beverage;
                 // std::cout << "out\n";
                 // if(this->beverage)
                 //     delete this->beverage;
@@ -152,10 +152,14 @@ class Milk: public CondimentDecorator
             {
                 std::cout << "Milk\n";
                 // std::cout <<"in\n";
-                this->beverage->~Beverage();
+                //this->beverage->~Beverage();
+                delete this->beverage;
                 // std::cout << "out\n";
+                //析构里面再调析构就崩了
+                /*************************/
                 // if(this->beverage)
                 //     delete this->beverage;
+                /*************************/
                 // std::cout << "delete\n";
             }        
         }
