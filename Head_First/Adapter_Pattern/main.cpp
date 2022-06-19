@@ -9,6 +9,7 @@ int main(int, char**) {
 
     du->fly();
     du->quack();
+    
     std::cout <<"-----------------------\n";
 
     testDuck(ru);
