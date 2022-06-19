@@ -1,6 +1,5 @@
 #include "Template_pattern.hpp"
 
-
 int main(int, char**) {
    Duck* duck = new Duck[6]{
     Duck("Daffy", 8),
