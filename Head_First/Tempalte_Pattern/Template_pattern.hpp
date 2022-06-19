@@ -27,9 +27,6 @@ class Duck {
 			return 0;
 		} else  {
 			return 1;}
-		// } else { // this.weight > otherDuck.weight
-		// 	return 1;
-		// }
 	}
 };
 
