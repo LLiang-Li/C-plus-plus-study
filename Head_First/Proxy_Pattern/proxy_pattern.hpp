@@ -1,8 +1,5 @@
 #pragma once
 #include <iostream>
-<<<<<<< HEAD
-
-=======
 #include <string>
 
 class PersonBean
@@ -154,4 +151,3 @@ class Proxy_Other: public PersonBean
     private:
         PersonBean* Other;
 };
->>>>>>> 9f975de507ccedc3836dd235aba3cbe5f785d835
