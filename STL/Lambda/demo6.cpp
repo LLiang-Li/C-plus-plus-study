@@ -4,11 +4,11 @@
 template <typename T>
 auto map(T fn)
 {
-    return [=] (auto reduce_fn1)
+    return [=] (auto reduce_fn)
     {
         return [=](auto accum, auto input)
         {
-            return reduce_fn1(accum, fn(input));
+            return reduce_fn(accum, fn(input));
         };
     };
 }
@@ -27,7 +27,6 @@ auto filter(T Predict)
         }
     };
 };
-
 }
 
 int main()

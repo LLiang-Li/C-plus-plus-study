@@ -36,4 +36,5 @@ int main_(int, char**)
     int d = scale(1);
     int c = 1;
     scale(c);
+    return 0;
 }
