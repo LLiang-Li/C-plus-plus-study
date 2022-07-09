@@ -1,0 +1,3 @@
+非必要不提供默认的default constructor
+dafault constructor主要指初始化类的构造函数没有输入。
+当没有默认构造函数是，初始化类会有一些限制
