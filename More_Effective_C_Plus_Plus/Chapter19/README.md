@@ -15,3 +15,7 @@ void uppercasify(const std::string &str);
 char str[] = "more effective c++";
 uppercasify(str);
 此时会产生临时对象
+
+当时，当函数被定义为：
+void uppercasify(std::string &str);
+会出现错误，由于str形参可能和实参不一致，可能导致错误，不会复制临时对象
