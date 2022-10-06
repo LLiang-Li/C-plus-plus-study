@@ -1,0 +1,3 @@
+不同的库产生的效率也有不同的执行效率：
+stdio和iostream
+stdio往往比iostream效率高
