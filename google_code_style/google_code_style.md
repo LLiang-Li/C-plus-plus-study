@@ -57,3 +57,90 @@ if (typeid(*data) == typeid(D1)) {
 #前置自增和自减#
 尽量使用前置，后自加还需要考虑拷贝带来的效率损失
 
+#const用法#
+能使用const的地方建议使用const，建议将const放在类型前面，即const T *，不建议T const *
+
+#整型#
+通常假定 short 是 16 位, int 是 32 位, long 是 32 位, long long 是 64 位.
+不要使用 uint32_t 等无符号整型, 除非你是在表示一个位组而不是一个数值, 或是你需要定义二进制补码溢出. 尤其是不要为了指出数值永不会为负, 而使用无符号类型. 相反, 你应该使用断言来保护数据.
+小心整型类型转换和整型提升（acgtyrant 注：integer promotions, 比如 int 与 unsigned int 运算时，前者被提升为 unsigned int 而有可能溢出），总有意想不到的后果。
+
+#预处理宏#
+宏时要非常谨慎, 尽量以内联函数, 枚举和常量代替之.
+主要有以下建议：
+不要在 .h 文件中定义宏.
+在马上要使用时才进行 #define, 使用后要立即 #undef.
+不要只是对已经存在的宏使用#undef，选择一个不会冲突的名称；
+不要试图使用展开后会导致 C++ 构造不稳定的宏, 不然也至少要附上文档说明其行为.
+不要用 ## 处理函数，类和变量的名字。
+
+#sizeof#
+尽可能用 sizeof(varname) 代替 sizeof(type).
+
+#auto#
+用 auto 绕过烦琐的类型名，只要可读性好就继续用，别用在局部变量之外的地方。
+auto x(3);  // 圆括号。
+auto y{3};  // 大括号。
+它们不是同一回事——x 是 int, y 则是 std::initializer_list<int>. 
+永远别列表初始化 auto 变量
+
+#列表初始化#
+千万别直接列表初始化 auto 变量，看下一句，估计没人看得懂：
+auto d = {1.23};        // d 即是 std::initializer_list<double>
+auto d = double{1.23};  // 善哉 -- d 即为 double, 并非 std::initializer_list.
+
+#Lambda#
+使用 lambda 表达式。别用默认 lambda 捕获，所有捕获都要显式写出来。
+[=](int x) {return x + n;}, 您该写成 [n](int x) {return x + n;} 才对
+
+#模板#
+模板编程所使用的技巧对于使用c++不是很熟练的人是比较晦涩, 难懂的. 在复杂的地方使用模板的代码让人更不容易读懂, 并且debug 和 维护起来都很麻烦
+
+##命名约定##
+#通用命名规则#
+函数命名, 变量命名, 文件命名要有描述性; 少用缩写.
+
+#文件命名#
+文件名要全部小写, 可以包含下划线(_)或连字符(-)，依据项目的约定。如果没有约定，那么"-"更好
+
+#类型命名#
+类型名称的每个单词首字母均大写, 不包含下划线: MyExcitingClass, MyExcitingEnum.
+所有类型命名 —— 类, 结构体, 类型定义 (typedef), 枚举, 类型模板参数 —— 均使用相同约定, 即以大写字母开始, 每个单词首字母均大写, 不包含下划线
+
+#变量命名#
+总述：变量 (包括函数参数) 和数据成员名一律小写, 单词之间用下划线连接. 类的成员变量以下划线结尾, 但结构体的就不用,
+普通变量命名：
+string table_name;  // 好 - 用下划线.
+string tablename;   // 好 - 全小写.
+string tableName;  // 差 - 混合大小写
+类数据成员：
+class TableInfo {
+  ...
+ private:
+  string table_name_;  // 好 - 后加下划线.
+  string tablename_;   // 好.
+  static Pool<TableInfo>* pool_;  // 好.
+};
+
+#结构体变量#
+不管是静态的还是非静态的, 结构体数据成员都可以和普通变量一样, 不用像类那样接下划线:
+struct UrlTableProperties {
+  string name;
+  int num_entries;
+  static Pool<UrlTableProperties>* pool;
+};
+
+#常量命名#
+声明为 constexpr 或 const 的变量, 或在程序运行期间其值始终保持不变的, 命名时以 “k” 开头, 大小写混合. 例如:
+const int kDaysInAWeek = 7;
+
+#函数命名#
+常规函数使用大小写混合, 取值和设值函数则要求与变量名匹配: MyExcitingFunction(), MyExcitingMethod(), my_exciting_member_variable(), set_my_exciting_member_variable().
+
+#命名空间#
+命名空间以小写字母命名. 最高级命名空间的名字取决于项目名称. 要注意避免嵌套命名空间的名字之间和常见的顶级命名空间的名字之间发生冲突.
+
+#宏命名#
+枚举的命名应当和 常量 或 宏 一致: kEnumName 或是 ENUM_NAME.
+
+##注释##
