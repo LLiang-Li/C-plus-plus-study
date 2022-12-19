@@ -1,0 +1,2 @@
+# 智能指针
+boost主要提供六种智能指针：scoped_ptr、scope_array、shared_ptr、shared_array、weak_ptr和intrsive_ptr
