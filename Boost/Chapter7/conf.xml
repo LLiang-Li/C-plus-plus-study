@@ -1,0 +1,9 @@
+<conf>
+    <gui>1</gui>
+    <theme>matrix</theme>
+    <urls>
+        <url>https://www.baoidu.com</url>
+        <url>https://www.zhihu.com</url>
+    </urls>
+    <clock_style>24</clock_style>
+</conf>
