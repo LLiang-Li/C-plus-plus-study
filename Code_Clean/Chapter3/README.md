@@ -19,11 +19,11 @@ if语句、else语句、while语句等，其中的代码块应该只有一行。
 ## 参数对象
 大于两个、三个和三个以上的参数。  
 定义圆：  
-'''c++
+```c++
 class Circle{
  public:
   Cricle(double x, double y, double radius);
   Circle(Point center, double radius);
 }
-'''
+```
 
