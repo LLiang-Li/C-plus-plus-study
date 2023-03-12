@@ -3,7 +3,8 @@
 #include<iostream>
 #include<exception>
 
-
+//#define _UNIONDATASTRUCT_
+#ifdef _UNIONDATASTRUCT_
 struct RGB
 {
     uint first:8;
@@ -29,6 +30,7 @@ union complex
     uint64 data;
     struct FLOAT com; 
 };
+#endif
 
 //#define _GETELEMETNS_
 #ifdef _GETELEMETNS_
@@ -40,7 +42,7 @@ void getElements();
 void CutPic();
 #endif
 
-#define _SETRGB_
+//#define _SETRGB_
 #ifdef _SETRGB_
 void setRgb();
 #endif
@@ -73,7 +75,7 @@ void setRgb()
     std::cout << "sum: " << image.rows*image.cols <<std::endl;
     std::cout << image.rows << ' ' << image.cols <<std::endl;
     for(int i = 0; i < image.rows; i++)
-    {   std::cout << i <<std::endl;
+    {  
         for(int j = 0; j < image.cols; j++)
         {
             image1.at<cv::Vec3b>(i, j)[0] = 255;
@@ -83,9 +85,10 @@ void setRgb()
             image3.at<cv::Vec3b>(i, j)[2] = 255;
             auto xs = image.at<cv::Vec3b>(i, j);
             try{
-                if(i > 550)
-                    std::cout << static_cast<int>(binary.at<unsigned char>(i,j)) <<',';
-                // binary.at<int>(i,j) = -3;
+                if(i == 100 || i == 400 || j ==50 || j == 350)
+                    binary.at<unsigned char>(i,j) = 0;
+                else
+                    binary.at<unsigned char>(i,j) = (xs[0] + xs[1] + xs[2])/3;
             }
             catch(std::exception &e)
             {
@@ -93,13 +96,14 @@ void setRgb()
                 std::cout << e.what();
             }
         }
-        std::cout << std::endl;
     }  
+    cv::Mat roi(image, cv::Rect(50,50,300,350));
     cv::imshow("Orirgnal", image);
-    cv::imshow("1", image1);
-    cv::imshow("2", image2);
-    cv::imshow("3", image3);
+    // cv::imshow("1", image1);
+    // cv::imshow("2", image2);
+    // cv::imshow("3", image3);
     cv::imshow("Binary", binary);
+    cv::imshow("image", roi);
     cv::waitKey(0);
 }
 #endif
