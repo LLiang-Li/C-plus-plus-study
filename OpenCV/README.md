@@ -8,6 +8,13 @@ window中的exe是用vs编译过的，需要重新使用gcc编译。
  `OPENCV_ENABLE_ATOMIC_LONG_LONG`
 最后使用make install进行编译安装，最后产出文件在输出文件的install文件夹下
 
+Cmake构建过程中会下载ffmpeg的动态库，如果下载失败会导致无法打开视频文件。
+最终会在编译目录中3rdpar/ffmpeg中生成opencv_videoio_ffmpeg.dll和opencv_videoio_ffmpeg_64.dll
+需要将opencv_videoio_ffmpeg_64.dll改成opencv_videoio_ffmpeg版本号_64.dll
+4.7.0的以使用gcc8.1.0编译完成，放在当前目录下
+opencv_videoio_ffmpeg470_64.dll
+
+
 编译成功后需要使用以下Cmake：
 ```makefile
 cmake_minimum_required(VERSION 3.0.0)
