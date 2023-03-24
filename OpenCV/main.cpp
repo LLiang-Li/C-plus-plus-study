@@ -2,6 +2,7 @@
 extern void EdgeCheck(int,  char ** );
 extern void StudyMat();
 extern void LightSpatialFilter();
+void ReadVideo(char **);
 
 #define MyInt(a) (static_cast<unsigned int>(a))
  
@@ -26,8 +27,11 @@ int main(int argc, char** argv)
         printf("%x,", data + i);
     }
 #endif
+#if 0
     StudyMat();
     LightSpatialFilter();
+#endif
+    ReadVideo(argv);
 
     return 0;
 }
