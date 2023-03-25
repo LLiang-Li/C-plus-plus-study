@@ -6,8 +6,11 @@ set(CMAKE_CXX_STANDARD 11)
 
 # SET(CMAKE_BUILD_TYPE "Debug")
 # SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
-
-set(OpenCV_DIR D:/mingwopencv/install/x64/mingw/lib)
+if(EXISTS D://mingwopencv//install//x64//mingw//lib)
+    set(OpenCV_DIR D://mingwopencv//install//x64//mingw//lib)
+else()
+    set(OpenCV_DIR C://Users//jetson//OpenCV//install//x64//mingw//lib)
+endif()
 
 find_package(OpenCV REQUIRED)
 
