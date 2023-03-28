@@ -4,9 +4,18 @@
   #include<opencv2/opencv.hpp>
   #include<Log.h>
   #include<vector>
+  #include<string>
+namespace my
+{
   cv::Mat* get_black(bool flag = false);
-  void my_circle(char** argv);
-  void my_clipLine(char** argv);
-  void my_ellipse(char** argv);
+
+  void circle(char** argv);
+  void clipLine(char** argv);
+  void ellipse(char** argv);
   void ellipse2Ploy_fillConvecPoly(char** argv);
+  void line(char** argv);
+  void ployLines(char** argv);
+  void putText(char** argv);
+} // namespace my
+  
 #endif

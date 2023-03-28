@@ -13,29 +13,41 @@ cv::line()画一条简单的直线
 cv::rectangle()画一条简单的直线
 cv::PolyLines()画多重折线
 */
-
-cv::Mat* get_black(bool flag)
+namespace my
 {
-  //static bool flag = true;
-  static cv::Mat img(960,786, CV_8SC3);
-  if(flag)
+  cv::Mat* get_black(bool flag)
   {
-    img.setTo(cv::Vec3b(0, 0, 0));
-    //flag = false;
+    //static bool flag = true;
+    static cv::Mat img(960,786, CV_8SC3);
+    if(flag)
+    {
+      img.setTo(cv::Vec3b(0, 0, 0));
+      //flag = false;
+    }
+    return &img;
   }
-  return &img;
-}
-
+}//namespace
 int main(int argc, char** argv)
 {
 
-  //my_circle(argv);
+  // my::circle(argv);
 
-  //my_clipLine(argv);
+  // my::clipLine(argv);
 
-  //my_ellipse(argv);
+  // my::ellipse(argv);
 
-  ellipse2Ploy_fillConvecPoly(argv);
+  // my::ellipse2Ploy_fillConvecPoly(argv);
+
+  //my::line(argv);
+
+  //my::ployLines(argv);
+  
+  my::putText(argv);
+  
+  cv::waitKey(0);
 
   return 0;
 }
+
+
+
