@@ -57,7 +57,7 @@ namespace lige
 
   void filestorage(char** argv)
   {
-    cv::FileStorage fs("lige.yml", cv::FileStorage::WRITE);
+    cv::FileStorage fs("lige.xml", cv::FileStorage::WRITE);
     fs <<"frameCount"<< 5;
     time_t rawtime; time(&rawtime);
     fs <<"calibrationDate"<< asctime(localtime(&rawtime));
