@@ -14,6 +14,11 @@ Cmake构建过程中会下载ffmpeg的动态库，如果下载失败会导致无
 4.7.0的以使用gcc8.1.0编译完成，放在当前目录下
 opencv_videoio_ffmpeg470_64.dll
 
+写视频文件会出现如下错误：
+`Failed to load OpenH264 library: openh264-1.8.0-win64.dll
+Please check environment and/or download library: https://github.com/cisco/openh264/releases`
+去git上下载对象的版本即可
+
 
 编译成功后需要使用以下Cmake：
 ```makefile
