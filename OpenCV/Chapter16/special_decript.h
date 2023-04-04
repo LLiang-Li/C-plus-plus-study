@@ -5,4 +5,5 @@ namespace lige
 {
   void GoodFeaturestoTrack(char** argv);
   void CornerSubPix(char** argv);
+  void CalcOpticalFlowPyrlK(char** argv);
 } // namespace lige
