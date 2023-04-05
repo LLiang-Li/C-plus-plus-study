@@ -55,7 +55,8 @@ namespace lige
     cv::imshow("add circle1", color);
     cv::waitKey(0);
   }
-
+  
+  //
   void CalcOpticalFlowPyrlK(char** argv)
   {
 #if 1
@@ -101,6 +102,8 @@ namespace lige
           continue;
         cv::line(img_show, corners_pri[i], corners_now[i], cv::Scalar(0, 255, 0), 2);
       }
+
+      LOG("dx = %f, dy = %f\n", corners_pri[0].x - corners_now[0].x, corners_pri[0].y - corners_now[0].y);
       cv::imshow("image pri", img_pri);
       cv::imshow("image now", img_now);
       cv::imshow("image LK ", img_show);
@@ -149,7 +152,34 @@ namespace lige
     cv::imshow("image pri", img_pri);
     cv::imshow("image now", img_now);
     cv::imshow("image LK ", img_show);
-#endif
     cv::waitKey(0);
+#endif
   }
+  /*
+  如果在两个不同方向附近观察到强微分，可以认为这一点就更有可能是独一无二的
+  哈尔角点提供了最普遍的定义。两个不同的坐标轴上变化强烈的点
+  */
+  //广义关键点和描述符
+  /*
+  关键点是图像的一小部分，由于某种原因，由于独特的原因，可以让我们在另一个相关的图像中定位它们
+  关键点主要的三个任务：跟踪、目标识别和立体视觉；
+  关键点的类：Ke
+  */
+  /*
+  特征提取函数：
+  blob检测器：SimpleBlobDetector
+  FASR检测器：FastFeatureDetector
+  SIFT检测器：SIFT
+  SURF检测器：SURF
+  */
+
+ void ReadFunction()
+ {
+  // cv::SimpleBlobDetector temp; 
+  //cv::FastFeatureDetector
+  // cv::SIFT
+  cv::SIFT::create();
+  cv::SURF::create();
+ }
+
 } // namespace lige
