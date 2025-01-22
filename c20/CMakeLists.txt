@@ -8,4 +8,10 @@ add_subdirectory(func_template)
 
 add_subdirectory(class_template)
 
+add_subdirectory(template_all_specific)
+
+add_subdirectory(template_depart_file)
+
+add_subdirectory(fold_expression)
+
 add_executable(${PROJECT_NAME}  main.cpp)

@@ -1,0 +1,1 @@
+add_executable(test_template_fold test_template_fold.cpp)

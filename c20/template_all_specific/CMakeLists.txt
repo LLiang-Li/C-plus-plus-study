@@ -1,0 +1,2 @@
+
+add_executable(test_template_all_specific test_template_all_specific.cpp)
