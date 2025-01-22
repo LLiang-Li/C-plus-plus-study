@@ -1,0 +1,5 @@
+add_executable(test_class_template test_class_template.cpp)
+
+add_executable(test_class_template_template test_class_template_template.cpp)
+
+add_executable(test_class_template_member_function test_class_template_member_function.cpp)

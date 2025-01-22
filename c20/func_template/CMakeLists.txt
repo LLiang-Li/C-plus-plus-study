@@ -1,0 +1,14 @@
+
+add_executable(test_template_mutistage_pointer test_template_mutistage_pointer.cpp)
+
+add_executable(test_template_function_1 test_template_function_1.cpp)
+
+add_executable(test_template_ref test_template_ref.cpp)
+
+add_executable(test_template_default_para test_template_default_para.cpp)
+
+add_executable(test_template_specific_type test_template_specific_type.cpp)
+
+add_executable(test_template_reload test_template_reload.cpp)
+
+add_executable(test_template_variable_par test_template_variable_par.cpp)
