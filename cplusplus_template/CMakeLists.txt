@@ -14,4 +14,6 @@ add_subdirectory(template_depart_file)
 
 add_subdirectory(fold_expression)
 
+add_subdirectory(template_decision_name)
+
 add_executable(${PROJECT_NAME}  main.cpp)
