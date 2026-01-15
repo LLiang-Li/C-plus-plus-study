@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(thread_pool VERSION 0.1.0 LANGUAGES C CXX)
+
+aux_source_directory(. SRC)
+
+set(CMAKE_BUILD_TYPE DEBUG)
+set(CMAKE_CXX_FLAGS "-g")
+
+add_executable(thread_pool ${SRC})
+target_link_libraries(thread_pool pthread)
